@@ -327,16 +327,19 @@ class WeChat:
                            sdate: str = "",
                            edate: str = ""):
         table = "Chat_{}".format(self._username_to_md5(contact))
+        cols = [
+            "CreateTime",
+            "Des",
+            "ImgStatus",
+            "MesLocalID",
+            "Message",
+            "MesSvrID",
+            "Status",
+            "TableVer",
+            "Type",
+        ]
         sql = f"""
-            SELECT CreateTime
-                ,Des
-                ,ImgStatus
-                ,MesLocalID
-                ,Message
-                ,MesSvrID
-                ,Status
-                ,TableVer
-                ,Type
+            SELECT {",".join(cols)}
             FROM {table}
         """
         try:
@@ -364,7 +367,7 @@ class WeChat:
                 msg = pd.read_sql(sql, conn)
         except Exception as err:
             logger.error(f"Failed to read message of {contact}: {err}")
-            msg = pd.DataFrame()
+            msg = pd.DataFrame(columns=cols)
         return msg
 
     def _parse_videomsg(self, msg: pd.DataFrame) -> pd.DataFrame:
