@@ -109,7 +109,7 @@ class WeChat:
         try:
             tree = etree.XML(xml, parser=etree.XMLParser(
                 remove_blank_text=True, recover=True))
-            t = tree.xpath(xpath)[0]
+            t = str(tree.xpath(xpath)[0])
         except Exception:
             t = ""
         return t
@@ -380,9 +380,12 @@ class WeChat:
             msg["Message"].apply(self._parse_xml, path="fromUser")
         )
         text = msg["Message"].apply(self._parse_xml, path="title")
-        msgtype = (msg["Message"].apply(self._parse_xml, path="type")
-                                 .replace("", pd.NA)
-                                 .fillna({"type": self.MSG_TYPE["appmsg"]}))
+        msgtype = (
+            msg["Message"].apply(self._parse_xml, path="type")
+                          .replace("", pd.NA)
+                          .fillna(self.MSG_TYPE["appmsg"])
+                          .astype(int)
+        )
         parsed = pd.DataFrame(
             {"sender": sender, "text": text, "type": msgtype})
         return parsed
