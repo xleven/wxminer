@@ -3,7 +3,7 @@
 """
 WX Miner: Deep into WeChat
 
-Copyright (c) 2021-2023 Shyvn
+Copyright (c) 2021-2023 xleven
 """
 
 import hashlib

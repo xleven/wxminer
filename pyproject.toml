@@ -2,10 +2,10 @@
 name = "wxminer"
 version = "0.1.0"
 description = "Deep into WeChat"
-authors = ["shyvn <shyvnx@gmail.com>"]
+authors = ["xleven <xleven@outlook.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/shyvn/wxminer"
+homepage = "https://github.com/xleven/wxminer"
 
 [tool.poetry.dependencies]
 python = "^3.10"
