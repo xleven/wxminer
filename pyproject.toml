@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "wxminer"
-version = "0.1.0"
+version = "0.1.1"
 description = "Deep into WeChat"
 authors = ["xleven <xleven@outlook.com>"]
 license = "MIT"
@@ -10,7 +10,7 @@ homepage = "https://github.com/xleven/wxminer"
 [tool.poetry.dependencies]
 python = "^3.10"
 pandas = "^1.5.3"
-ibackupy = "^0.1.0"
+ibackupy = "^0.1.2"
 lxml = "^4.9.2"
 
 

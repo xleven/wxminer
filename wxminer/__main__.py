@@ -1,7 +1,16 @@
+#!/usr/bin/evn python
+# -*- coding: utf-8 -*-
+"""
+WX Miner: Deep into WeChat
+
+Copyright (c) 2021-2023 xleven
+"""
+
 import argparse
 import logging
 
-from .wechat import WeChat
+from wxminer.wechat import WeChat
+
 
 if __name__ == "__main__":
 
